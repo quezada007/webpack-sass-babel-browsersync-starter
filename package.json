@@ -7,6 +7,10 @@
     "dev": "webpack --colors --watch --mode development",
     "build": "webpack --colors --mode production"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/quezada007/webpack-sass-babel-browsersync-starter.git"
+  },
   "author": "Jose Quezada",
   "license": "ISC",
   "devDependencies": {

@@ -8,7 +8,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const dist = 'dist'; // destination directory
 //const localURL = 'http://mysite.loc'; // URL of your local environment
 
-module.exports = {
+const config = {
     /**
      *  Entry source js files
      */
@@ -162,9 +162,21 @@ module.exports = {
                 cssProcessorOptions: { sourceMap: true }
             })
         ]
-    },
-    /**
-     * Create source maps for JS and the SCSS files
-     */
-    devtool: 'source-map'
+    }
+};
+
+module.exports = (env, argv) => {
+
+    if (argv.mode === 'development') {
+        /**
+         * Create source maps for JS and the SCSS files
+         */
+        config.devtool = 'source-map';
+    }
+
+    if (argv.mode === 'production') {
+        // Production
+    }
+
+    return config;
 };
